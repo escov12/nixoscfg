@@ -1,11 +1,11 @@
 { pkgs, lib, config, ... }: {
 
   options = {
-      plasma6-bundle.enable = 
-          lib.mkEnableOption "enables plasma6-bundle";
+      plasma-enviroment.enable = 
+          lib.mkEnableOption "enables plasma-enviroment";
   };
 
-  config = lib.mkIf config.plasma6-bundle.enable {
+  config = lib.mkIf config.plasma-enviroment.enable {
     home.packages = with pkgs; [
       kdePackages.discover
       kdePackages.kcalc

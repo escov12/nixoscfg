@@ -3,9 +3,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ../../modules/system/services/default.nix
-      ../../modules/system/programs/default.nix
-      ../../modules/system/hardware/default.nix
+      ../../modules
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -16,25 +14,23 @@
   networking.networkmanager.enable = true;
   time.timeZone = "America/Hermosillo";
 
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+  ];
+  
+  # users
+
   #users.mutableUsers = false;
   users.users.root.hashedPassword = "!";
-  
-  users.users.escov = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
+  escov.enable = true;
 
   # home manager
 
   home-manager = {
     users = {
-      escov = import ./home.nix;
+      escov = import ../../homes/escov;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    wl-clipboard
-  ];
 
   # firewall
 
@@ -51,8 +47,9 @@
   # enabled services
   
   pipewire.enable = true;
-  plasma6.enable = true;
+  plasma.enable = true;
   sddm.enable = true;
+  flatpak.enable = true;
 
   # enabled programs
 

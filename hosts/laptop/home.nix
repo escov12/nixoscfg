@@ -19,7 +19,6 @@
     wget
     git
     vscodium
-    flatpak
     libreoffice-fresh
   ];
 
