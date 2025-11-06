@@ -1,7 +1,7 @@
 {pkgs, lib, ... }: {
 
   imports = [
-    ./plasma6
+    ./plasma-enviroment
   ];
 
 }

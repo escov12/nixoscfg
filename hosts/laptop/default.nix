@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, inputs, ... }: {
 
   imports =
     [ 
@@ -16,6 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    brave
   ];
   
   # users
@@ -27,6 +28,7 @@
   # home manager
 
   home-manager = {
+    extraSpecialArgs = { inherit inputs; };
     users = {
       escov = import ../../homes/escov;
     };

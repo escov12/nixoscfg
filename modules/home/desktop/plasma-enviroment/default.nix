@@ -1,11 +1,11 @@
 { pkgs, lib, config, ... }: {
 
   options = {
-      plasma-enviroment.enable = 
-          lib.mkEnableOption "enables plasma-enviroment";
+      plasma-desktop.enable = 
+          lib.mkEnableOption "enables plasma-destop";
   };
 
-  config = lib.mkIf config.plasma-enviroment.enable {
+  config = lib.mkIf config.plasma-desktop.enable {
     home.packages = with pkgs; [
       kdePackages.discover
       kdePackages.kcalc
